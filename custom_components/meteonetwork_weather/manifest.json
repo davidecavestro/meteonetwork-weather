@@ -1,0 +1,15 @@
+{
+    "domain": "meteonetwork_weather",
+    "name": "MeteoNetwork Weather",
+    "version": "0.1.0",
+    "requirements": [
+        "aiohttp"
+    ],
+    "dependencies": [],
+    "codeowners": [
+        "@davidecavestro"
+    ],
+    "config_flow": true,
+    "documentation": "https://github.com/davidecavestro/meteonetwork-weather",
+    "issue_tracker": "https://github.com/davidecavestro/meteonetwork-weather/issues"
+}

@@ -1,0 +1,48 @@
+{
+    "title": "MeteoNetwork Weather",
+    "config": {
+        "step": {
+            "user": {
+                "title": "Configure MeteoNetwork Weather",
+                "description": "Set the Auth token and the station ID.",
+                "data": {
+                    "token": "Auth token",
+                    "station_id": "Weather Station ID"
+                }
+            }
+        },
+        "error": {
+            "cannot_connect": "Unable to connect to the API. Check your settings."
+        }
+    },
+    "entity": {
+        "sensor": {
+            "temperature": {
+                "name": "Temperature in {station_name}"
+            },
+            "humidity": {
+                "name": "Humidity in {station_name}"
+            },
+            "pressure": {
+                "name": "Pressure in {station_name}"
+            },
+            "precipitation": {
+                "name": "Precipitation in {station_name}"
+            },
+            "wind_bearing": {
+                "name": "Wind bearing in {station_name}"
+            },
+            "wind_speed": {
+                "name": "Wind speed in {station_name}"
+            },
+            "uv_index": {
+                "name": "UV index in {station_name}"
+            }
+        },
+        "weather": {
+            "meteonetwork": {
+                "name": "Conditions in {station_name}"
+            }
+        }
+    }
+}

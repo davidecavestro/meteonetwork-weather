@@ -1,0 +1,48 @@
+{
+    "title": "Meteo MeteoNetwork",
+    "config": {
+        "step": {
+            "user": {
+                "title": "Configura MeteoNetwork",
+                "description": "Imposta il token e l'ID stazione meteo da usare per comunicare con l'API di MeteoNetwork.",
+                "data": {
+                    "token": "Token",
+                    "station_id": "Stazione Meteo"
+                }
+            }
+        },
+        "error": {
+            "cannot_connect": "Impossibile connettersi all'API. Controlla le impostazioni."
+        }
+    },
+    "entity": {
+        "sensor": {
+            "temperature": {
+                "name": "Temperatura a {station_name}"
+            },
+            "humidity": {
+                "name": "Umidità a {station_name}"
+            },
+            "visibility": {
+                "name": "Visiilità a {station_name}"
+            },
+            "pressure": {
+                "name": "Pressione a {station_name}"
+            },
+            "wind_bearing": {
+                "name": "Direzione vento a {station_name}"
+            },
+            "wind_speed": {
+                "name": "Velocità vento a {station_name}"
+            },
+            "uv_index": {
+                "name": "Indice UV a {station_name}"
+            }
+        },
+        "weather": {
+            "meteonetwork": {
+                "name": "Situazione a {station_name}"
+            }
+        }
+    }
+}
