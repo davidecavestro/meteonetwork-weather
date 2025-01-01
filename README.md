@@ -10,7 +10,7 @@ Home Assistant unofficial integration for MeteoNetwork Weather current condition
 
 This integration adds support for retrieving the current conditions from [MeteoNetwork realtime weather data of specific weather stations](https://api.meteonetwork.it/documentation.html#tag/Realtime-Data/paths/~1data-realtime~1%7Bstation_code%7D/get).
 
-For this integration you must choose a MeteoNetwork weather station for current conditions.
+You can configure multiple MeteoNetwork weather stations to get observed weather conditions.
 
 #### This integration will set up the following platforms.
 
