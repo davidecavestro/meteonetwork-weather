@@ -5,7 +5,7 @@ DOMAIN = "meteonetwork_weather"
 API_BASE = "https://api.meteonetwork.it/v3"
 
 SENSOR_TYPES = {
-    "temperature": {
+    "native_temperature": {
         "name": "Temperature",
         "unit": "°C",
         "device_class": "temperature",
@@ -15,26 +15,21 @@ SENSOR_TYPES = {
         "unit": "%",
         "device_class": "humidity",
     },
-    "pressure": {
+    "native_pressure": {
         "name": "pressure",
         "unit": "hPa",
         "device_class": "pressure",
     },
-    "precipitation": {
+    "native_precipitation": {
         "name": "Precipitation",
         "unit": "mm",
         "device_class": "precipitation",
-    },
-    "precipitation_probability": {
-        "name": "Precipitation probability",
-        "unit": "%",
-        "device_class": "probability",
     },
     "wind_bearing": {
         "name": "Wind bearing",
         "device_class": "direction",
     },
-    "wind_speed": {
+    "native_wind_speed": {
         "name": "Wind speed",
         "unit": "km/h",
         "device_class": "wind",
@@ -43,6 +38,11 @@ SENSOR_TYPES = {
         "name": "UV index",
         "unit": "UV index",
         "device_class": "uv_index",
+    },
+    "native_dew_point": {
+        "name": "Dew point",
+        "unit": "°C",
+        "device_class": "dew_point",
     },
 }
 

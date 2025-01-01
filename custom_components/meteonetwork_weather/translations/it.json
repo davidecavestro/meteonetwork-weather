@@ -17,7 +17,7 @@
     },
     "entity": {
         "sensor": {
-            "temperature": {
+            "native_temperature": {
                 "name": "Temperatura a {station_name}"
             },
             "humidity": {
@@ -26,17 +26,23 @@
             "visibility": {
                 "name": "Visiilità a {station_name}"
             },
-            "pressure": {
+            "native_pressure": {
                 "name": "Pressione a {station_name}"
             },
             "wind_bearing": {
                 "name": "Direzione vento a {station_name}"
             },
-            "wind_speed": {
+            "native_wind_speed": {
                 "name": "Velocità vento a {station_name}"
             },
             "uv_index": {
                 "name": "Indice UV a {station_name}"
+            },
+            "native_dew_point": {
+                "name": "Punto di rugiada a {station_name}"
+            },
+            "native_precipitation": {
+                "name": "Precipitazioni a {station_name}"
             }
         },
         "weather": {

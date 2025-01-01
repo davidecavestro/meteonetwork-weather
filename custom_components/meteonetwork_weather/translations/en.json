@@ -17,13 +17,13 @@
     },
     "entity": {
         "sensor": {
-            "temperature": {
+            "native_temperature": {
                 "name": "Temperature in {station_name}"
             },
             "humidity": {
                 "name": "Humidity in {station_name}"
             },
-            "pressure": {
+            "native_pressure": {
                 "name": "Pressure in {station_name}"
             },
             "precipitation": {
@@ -32,11 +32,17 @@
             "wind_bearing": {
                 "name": "Wind bearing in {station_name}"
             },
-            "wind_speed": {
+            "native_wind_speed": {
                 "name": "Wind speed in {station_name}"
             },
             "uv_index": {
                 "name": "UV index in {station_name}"
+            },
+            "native_dew_point": {
+                "name": "Dew point in {station_name}"
+            },
+            "native_precipitation": {
+                "name": "Precipitation in {station_name}"
             }
         },
         "weather": {

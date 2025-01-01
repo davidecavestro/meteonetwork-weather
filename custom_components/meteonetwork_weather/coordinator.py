@@ -42,6 +42,13 @@ class MeteoNetworkDataUpdateCoordinator(DataUpdateCoordinator):
         async with self._lock:  # Ensures only one update happens at a time
             return await self.async_request_refresh()
 
+    def _store_float(self, source, source_key, target, target_key):
+        if (value := source.get(source_key)) is not None:
+            try:
+                target[target_key] = float(value)
+            except ValueError:
+                target[target_key] = None
+
     async def fetch_station_data(self):
         """Fetch data from the station."""
         url = f"{API_BASE}/data-realtime/{self.station_id}"
@@ -54,42 +61,25 @@ class MeteoNetworkDataUpdateCoordinator(DataUpdateCoordinator):
         extracted_data = {}
         # Extract temperature, humidity, and other data
         extracted_data["station_name"] = data["name"]
-        if (value := data.get("temperature")):
-            extracted_data["temperature"] = float(
-                value) if value.replace('.', '', 1).isdigit() else None
-        if (value := data.get("rh")):
-            extracted_data["humidity"] = float(
-                value) if value.replace('.', '', 1).isdigit() else None
-        if (value := data.get("wind_direction")):
-            extracted_data["wind_bearing"] = float(
-                value) if value.replace('.', '', 1).isdigit() else None
-        elif (value := data.get("wind_direction_degree")):
-            extracted_data["wind_bearing"] = CARDINAL_DIRECTIONS[int(
-                (value + 11.25)/22.5)] if value.replace('.', '', 1).isdigit() else None
-        if (value := data.get("smlp")):
-            extracted_data["pressure"] = float(
-                value) if value.replace('.', '', 1).isdigit() else None
-        if (value := data.get("wind_speed")):
-            extracted_data["wind_speed"] = float(
-                value) if value.replace('.', '', 1).isdigit() else None
-        if (value := data.get("wind_gust")):
-            extracted_data["wind_gust"] = float(
-                value) if value.replace('.', '', 1).isdigit() else None
-        if (value := data.get("daily_rain")):
-            extracted_data["precipitation"] = float(
-                value) if value.replace('.', '', 1).isdigit() else None
-        if (value := data.get("rad")):
-            extracted_data["uv_index"] = float(
-                value) if value.replace('.', '', 1).isdigit() else None
-        elif (value := data.get("uv")):
-            extracted_data["uv_index"] = round(
-                float(value) / 0.025) if value.replace('.', '', 1).isdigit() else None
-        if (value := data.get("dew_point")):
-            extracted_data["dew_point"] = float(
-                value) if value.replace('.', '', 1).isdigit() else None
-        if (value := data.get("smlp")):
-            extracted_data["pressure"] = float(
-                value) if value.replace('.', '', 1).isdigit() else None
+        self._store_float(data, "temperature", extracted_data, "temperature")
+        self._store_float(data, "rh", extracted_data, "humidity")
+        self._store_float(data, "wind_direction", extracted_data, "wind_bearing")
+        self._store_float(data, "smlp", extracted_data, "pressure")
+        self._store_float(data, "wind_speed", extracted_data, "wind_speed")
+        self._store_float(data, "wind_gust", extracted_data, "wind_gust")
+        self._store_float(data, "daily_rain", extracted_data, "precipitation")
+        self._store_float(data, "rad", extracted_data, "uv_index")
+        self._store_float(data, "dew_point", extracted_data, "dew_point")
+        self._store_float(data, "smlp", extracted_data, "pressure")
+
+        if (extracted_data.get("wind_bearing")) is None:
+            if (value := data.get("wind_direction_degree")) is not None:
+                extracted_data["wind_bearing"] = CARDINAL_DIRECTIONS[int(
+                    (float(value) + 11.25)/22.5)]
+
+        if (extracted_data.get("uv_index")) is None:
+            if (value := data.get("uv")) is not None:
+                extracted_data["uv_index"] = round(float(value) / 0.025)
 
         extracted_data["last_update"] = datetime.now().isoformat()
         extracted_data["altitude"] = data.get("altitude")
