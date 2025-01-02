@@ -9,40 +9,48 @@ SENSOR_TYPES = {
         "name": "Temperature",
         "unit": "°C",
         "device_class": "temperature",
+        "data_key": "temperature",
     },
     "humidity": {
         "name": "Humidity",
         "unit": "%",
         "device_class": "humidity",
+        "data_key": "humidity",
     },
     "native_pressure": {
-        "name": "pressure",
+        "name": "Pressure",
         "unit": "hPa",
         "device_class": "pressure",
+        "data_key": "pressure",
     },
     "native_precipitation": {
         "name": "Precipitation",
         "unit": "mm",
         "device_class": "precipitation",
+        "data_key": "precipitation",
     },
     "wind_bearing": {
         "name": "Wind bearing",
         "device_class": "direction",
+        "data_key": "wind_bearing",
     },
     "native_wind_speed": {
         "name": "Wind speed",
         "unit": "km/h",
         "device_class": "wind",
+        "data_key": "wind_speed",
     },
     "uv_index": {
         "name": "UV index",
         "unit": "UV index",
         "device_class": "uv_index",
+        "data_key": "uv_index",
     },
     "native_dew_point": {
         "name": "Dew point",
         "unit": "°C",
         "device_class": "dew_point",
+        "data_key": "dew_point",
     },
 }
 
