@@ -68,7 +68,7 @@ class MeteoNetworkDataUpdateCoordinator(DataUpdateCoordinator):
         self._store_float(data, "wind_speed", extracted_data, "wind_speed")
         self._store_float(data, "wind_gust", extracted_data, "wind_gust")
         self._store_float(data, "daily_rain", extracted_data, "precipitation")
-        self._store_float(data, "rad", extracted_data, "uv_index")
+        self._store_float(data, "uv", extracted_data, "uv_index")
         self._store_float(data, "dew_point", extracted_data, "dew_point")
         self._store_float(data, "smlp", extracted_data, "pressure")
 
@@ -78,8 +78,10 @@ class MeteoNetworkDataUpdateCoordinator(DataUpdateCoordinator):
                     (float(value) + 11.25)/22.5)]
 
         if (extracted_data.get("uv_index")) is None:
-            if (value := data.get("uv")) is not None:
-                extracted_data["uv_index"] = round(float(value) / 0.025)
+            if (value := data.get("rad")) is not None:
+                # Assuming UV Fraction = 6% => 0.06
+                # For W/m², the scaling factor is 0.04 because it represents instantaneous power
+                extracted_data["uv_index"] = round(float(value) * 0.06 * 0.04)
 
         extracted_data["last_update"] = datetime.now().isoformat()
         extracted_data["altitude"] = data.get("altitude")
