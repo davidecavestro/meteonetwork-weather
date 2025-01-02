@@ -9,7 +9,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
     sensors = [
         MeteoNetworkSensor(coordinator, config_entry, sensor_key)
-        for sensor_key, sensor_data in SENSOR_TYPES.items()
+        for sensor_key in SENSOR_TYPES
     ]
     async_add_entities(sensors)
 

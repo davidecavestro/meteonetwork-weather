@@ -4,6 +4,8 @@ from datetime import timedelta
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 
+from custom_components.meteonetwork_weather.rate_limiter import RateLimiter
+
 from .coordinator import MeteoNetworkDataUpdateCoordinator
 
 from .const import DOMAIN
@@ -14,12 +16,14 @@ PLATFORMS = ["weather", "sensor"]
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up MeteoNetwork Weather from a config entry."""
 
+    rate_limiter = RateLimiter(rate_limit=1)
     update_interval = timedelta(minutes=entry.options.get(
         "update_interval", 5))  # Fetch data every 5 minutes
     coordinator = MeteoNetworkDataUpdateCoordinator(
         hass,
         entry,
         update_interval,
+        rate_limiter,
     )
     await coordinator.async_config_entry_first_refresh()
 

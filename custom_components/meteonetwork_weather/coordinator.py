@@ -17,8 +17,9 @@ _LOGGER = logging.getLogger(__name__)
 class MeteoNetworkDataUpdateCoordinator(DataUpdateCoordinator):
     """Data update coordinator for MeteoNetwork."""
 
-    def __init__(self, hass, config_entry, update_interval):
+    def __init__(self, hass, config_entry, update_interval, rate_limiter):
         """Initialize the data update coordinator."""
+        self.rate_limiter = rate_limiter
         self.station_id = config_entry.data.get("station_id")
         self.token = config_entry.data.get("token")
         super().__init__(
@@ -53,9 +54,14 @@ class MeteoNetworkDataUpdateCoordinator(DataUpdateCoordinator):
         """Fetch data from the station."""
         url = f"{API_BASE}/data-realtime/{self.station_id}"
         headers = {"Authorization": f"Bearer {self.token}"}
-        async with aiohttp.ClientSession(headers=headers) as session, session.get(url) as response:
+        async with aiohttp.ClientSession(headers=headers) as session:
+            async def fetch_data(url):
+                return await session.get(url)
+
+            response = await self.rate_limiter.throttle(lambda: fetch_data(url))
             if response.status != 200:
                 raise UpdateFailed(f"Error fetching data: {response.status}")
+
             data = (await response.json())[0]
 
         extracted_data = {}
