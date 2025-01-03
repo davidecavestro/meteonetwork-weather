@@ -1,4 +1,9 @@
 
+## [0.2.1] - 2025-01-03
+### :bug: Bug Fixes
+- [`9377148`](https://github.com/davidecavestro/meteonetwork-weather/commit/93771481235277f680d2a3fb3b8b0f6f58c63bf5) - add missing rate_limiter *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+
+
 ## [0.2.0] - 2025-01-02
 ### :sparkles: New Features
 - [`bbd477d`](https://github.com/davidecavestro/meteonetwork-weather/commit/bbd477d49adc8510b6fd31329ebe7a02928c731c) - throttle concurrent requests *(commit by [@davidecavestro](https://github.com/davidecavestro))*
@@ -19,3 +24,4 @@
 [0.1.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.1.0...0.1.1
 [0.1.2]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.1.1...0.1.2
 [0.2.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.1.2...0.2.0
+[0.2.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.2.0...0.2.1
