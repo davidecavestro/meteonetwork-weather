@@ -1,7 +1,8 @@
 {
     "domain": "meteonetwork_weather",
     "name": "MeteoNetwork Weather",
-    "version": "0.1.0",
+    "iot_class": "cloud_polling",
+    "integration_type": "hub",
     "requirements": [
         "aiohttp"
     ],
