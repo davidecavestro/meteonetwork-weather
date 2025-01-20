@@ -31,7 +31,7 @@ class MeteoNetworkDataUpdateCoordinator(DataUpdateCoordinator):
         super().__init__(
             hass,
             _LOGGER,
-            name=f"{DOMAIN}_{slugify(self.station_name) if self.is_virtual else self.station_id}",
+            name=f"{DOMAIN}_{_slugify(self.station_name) if self.is_virtual else self.station_id}",
             update_method=self._async_update_data,
             update_interval=update_interval,
         )
@@ -114,7 +114,7 @@ class MeteoNetworkDataUpdateCoordinator(DataUpdateCoordinator):
 
         return extracted_data
 
-def slugify(s):
+def _slugify(s):
     s = s.lower().strip()
     s = sub(r'[^\w\s-]', '', s)
     s = sub(r'[\s_-]+', '-', s)

@@ -55,7 +55,7 @@ class MeteoNetworkWeatherConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         })
 
         description_placeholders = {
-            "link": f"<a href=\"https://www.meteonetwork.it/rete/livemap/#\" target=\"_blank\">meteonetwork.it</a>",
+            "link": "<a href=\"https://www.meteonetwork.it/rete/livemap/#\" target=\"_blank\">meteonetwork.it</a>",
         }
 
         return self.async_show_form(
