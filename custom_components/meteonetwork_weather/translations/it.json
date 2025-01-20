@@ -4,11 +4,33 @@
         "step": {
             "user": {
                 "title": "Configura MeteoNetwork",
-                "description": "Imposta il token e l'ID stazione meteo da usare per comunicare con l'API di MeteoNetwork.",
+                "description": "Imposta il token e scegli il tipo di stazione meteo da usare per comunicare con l'API di MeteoNetwork.<br/>Scegli il tipo 'virtuale' se non hai stazioni fisiche vicino a casa.",
                 "data": {
                     "token": "Token",
-                    "station_id": "Stazione Meteo"
+                    "station_type": "Tipo di stazione"
                 }
+            },
+            "real_station": {
+                "title": "Configura MeteoNetwork - Stazione fisica",
+                "description": "Imposta l'ID della stazione meteo.<br/>Se non ce l'hai puoi cercarlo su {link}",
+                "data": {
+                    "station_id": "ID Stazione Meteo"
+                }
+            },
+            "virtual_station": {
+                "title": "Configura MeteoNetwork - Stazione virtuale",
+                "description": "Imposta nome e coordinate della stazione.<br/>Puoi cercare la posizione su {link} e copiare/incollare qui",
+                "data": {
+                    "station_name": "Nome stazione",
+                    "latitude": "Latitudine",
+                    "longitude": "Longitudine"
+                }
+            }
+        },
+        "options": {
+            "station_type": {
+                "real": "Stazione fisica",
+                "virtual": "Stazione virtuale"
             }
         },
         "error": {

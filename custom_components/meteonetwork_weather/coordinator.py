@@ -11,6 +11,7 @@ from homeassistant.helpers.update_coordinator import UpdateFailed
 
 
 from datetime import datetime
+from re import sub
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -20,12 +21,17 @@ class MeteoNetworkDataUpdateCoordinator(DataUpdateCoordinator):
     def __init__(self, hass, config_entry, update_interval, rate_limiter):
         """Initialize the data update coordinator."""
         self.rate_limiter = rate_limiter
+        self.station_type = config_entry.data.get("station_type")
+        self.latitude = config_entry.data.get("latitude")
+        self.longitude = config_entry.data.get("longitude")
+        self.station_name = config_entry.data.get("station_name")
         self.station_id = config_entry.data.get("station_id")
         self.token = config_entry.data.get("token")
+        self.is_virtual = self.station_type == "virtual"
         super().__init__(
             hass,
             _LOGGER,
-            name=f"{DOMAIN}_{self.station_id}",
+            name=f"{DOMAIN}_{slugify(self.station_name) if self.is_virtual else self.station_id}",
             update_method=self._async_update_data,
             update_interval=update_interval,
         )
@@ -52,21 +58,33 @@ class MeteoNetworkDataUpdateCoordinator(DataUpdateCoordinator):
 
     async def fetch_station_data(self):
         """Fetch data from the station."""
-        url = f"{API_BASE}/data-realtime/{self.station_id}"
         headers = {"Authorization": f"Bearer {self.token}"}
+        _station_id = self.station_id
         async with aiohttp.ClientSession(headers=headers) as session:
-            async def fetch_data(url):
-                return await session.get(url)
+            async def fetch_data():
+                params = {}
+                if self.is_virtual:
+                    url = f"{API_BASE}/interpolated-realtime"
+                    params["lat"] = self.latitude
+                    params["lon"] = self.longitude
+                else:
+                    url = f"{API_BASE}/data-realtime/{_station_id}"
 
-            response = await self.rate_limiter.throttle(lambda: fetch_data(url))
+                return await session.get(url=url, params=params)
+
+            response = await self.rate_limiter.throttle(lambda: fetch_data())
             if response.status != 200:
                 raise UpdateFailed(f"Error fetching data: {response.status}")
 
-            data = (await response.json())[0]
-
         extracted_data = {}
+        if self.is_virtual:
+            data = (await response.json())
+            extracted_data["station_name"] = self.station_name
+        else:
+            data = (await response.json())[0]
+            extracted_data["station_name"] = data["name"]
+
         # Extract temperature, humidity, and other data
-        extracted_data["station_name"] = data["name"]
         self._store_float(data, "temperature", extracted_data, "temperature")
         self._store_float(data, "rh", extracted_data, "humidity")
         self._store_float(data, "wind_direction", extracted_data, "wind_bearing")
@@ -95,3 +113,10 @@ class MeteoNetworkDataUpdateCoordinator(DataUpdateCoordinator):
         extracted_data["longitude"] = data.get("longitude")
 
         return extracted_data
+
+def slugify(s):
+    s = s.lower().strip()
+    s = sub(r'[^\w\s-]', '', s)
+    s = sub(r'[\s_-]+', '-', s)
+    s = sub(r'^-+|-+$', '', s)
+    return s

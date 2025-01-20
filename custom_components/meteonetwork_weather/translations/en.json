@@ -4,11 +4,33 @@
         "step": {
             "user": {
                 "title": "Configure MeteoNetwork Weather",
-                "description": "Set the Auth token and the station ID.",
+                "description": "Set the Auth token and select the type of station.<br/>Choose the 'virtual' type if you have no real stations near your home.",
                 "data": {
                     "token": "Auth token",
+                    "station_type": "Type of station"
+                }
+            },
+            "real_station": {
+                "title": "Configure MeteoNetwork - Real station",
+                "description": "Set the station ID.<br/>If unsure you can search it at {link}",
+                "data": {
                     "station_id": "Weather Station ID"
                 }
+            },
+            "virtual_station": {
+                "title": "Configure MeteoNetwork - Virtual station",
+                "description": "Set name and coordinates for the virtual station.<br/>If unsure you can check them at {link}",
+                "data": {
+                    "station_name": "Virtual station name",
+                    "latitude": "Latitude",
+                    "longitude": "Longitude"
+                }
+            }
+        },
+        "options": {
+            "station_type": {
+                "real": "Real Station",
+                "virtual": "Virtual Station"
             }
         },
         "error": {
