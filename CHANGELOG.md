@@ -1,4 +1,12 @@
 
+## [0.3.1] - 2025-01-21
+### :bug: Bug Fixes
+- [`07951ea`](https://github.com/davidecavestro/meteonetwork-weather/commit/07951eafa45914cbc771627b1964897abdac19c8) - avoid conflicts on virtual stations ids *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+
+### :wrench: Chores
+- [`1b08cf6`](https://github.com/davidecavestro/meteonetwork-weather/commit/1b08cf66a18e5bd7d0a35dafa687117b17628f70) - fix linting *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+
+
 ## [0.3.0] - 2025-01-20
 ### :sparkles: New Features
 - [`e561380`](https://github.com/davidecavestro/meteonetwork-weather/commit/e56138011ed8be80dcb46c57314b7775398a3565) - [#1](https://github.com/davidecavestro/meteonetwork-weather/pull/1) Provide support for virtual/interpolated station *(commit by [@davidecavestro](https://github.com/davidecavestro))*
@@ -36,3 +44,4 @@
 [0.2.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.1.2...0.2.0
 [0.2.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.2.0...0.2.1
 [0.3.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.2.1...0.3.0
+[0.3.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.3.0...0.3.1
