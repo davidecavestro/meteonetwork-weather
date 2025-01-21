@@ -47,7 +47,12 @@ To add MeteoNetwork Weather to your installation, do the following:
   | Parameter | Required | Default Value | Description |
   | --------- | -------- | ------------- | ----------- |
   | `Auth Token`   | Yes      | None          | The token provided by MeteoNetwork. You can generate it from the [MeteoNetwork API documentation](https://api.meteonetwork.it/documentation.html#tag/User-Login/paths/~1login/post). |
-  | `Station ID` | Yes | None | Choose the Weather Station for getting current conditions among the available ones. Check [the live map](https://www.meteonetwork.it/rete/livemap/) or [the stations list](https://www.meteonetwork.eu/it/stations-list). |
+  | `Station Type` | Yes | Real | Choose the type of Weather Station. Choose a real one near your home, or
+  a virtual one based on latitude and longitude to get interpolated data from nearest real stations. |
+  | `Station ID` (for real stations) | Yes | None | Choose the Weather Station for getting current conditions among the available ones. Check [the live map](https://www.meteonetwork.it/rete/livemap/) or [the stations list](https://www.meteonetwork.eu/it/stations-list). |
+  | `Latitude` (for virtual stations) | Yes | None | Virtual station latitude. |
+  | `Longitude` (for virtual stations) | Yes | None | Virtual station longitude. |
+  | `Station name` (for virtual stations) | Yes | None | Virtual station name. |
 
 - Complete the wizard to save your data. If all goes well you should now have a new Weather entity with data from MeteoNetwork Forecast
 - **Please Note**: You can configure multiple instances of the Integration.

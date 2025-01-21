@@ -25,8 +25,12 @@ class MeteoNetworkSensor(CoordinatorEntity[DataUpdateCoordinator], SensorEntity)
         self.sensor_type = sensor_type
         self._attr_device_class = SENSOR_TYPES[sensor_type].get("device_class")
         self._attr_native_unit_of_measurement = SENSOR_TYPES[sensor_type].get("unit")
+        self._attr_latitude = config_entry.data.get('latitude')
+        self._attr_longitude = config_entry.data.get('longitude')
+        self._attr_station_type = config_entry.data.get('station_type')
 
-        self._attr_unique_id = f"meteonetwork_{sensor_type}_{self._attr_station_id}"
+        self._attr_unique_id = f"meteonetwork_{sensor_type}_{self._attr_station_id}" if self._attr_station_type == "real" else f"weather.meteonetwork_{
+            sensor_type}_{self._attr_latitude}_{self._attr_longitude}"
 
         self._attr_has_entity_name = True
         self._attr_translation_key = sensor_type

@@ -2,8 +2,8 @@
 import aiohttp
 import voluptuous as vol
 from homeassistant import config_entries
+from homeassistant.helpers.translation import async_get_translations
 from .const import DOMAIN, API_BASE
-
 
 class MeteoNetworkWeatherConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Handle a config flow for MeteoNetwork Weather."""
@@ -20,12 +20,29 @@ class MeteoNetworkWeatherConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             elif user_input["station_type"] == "virtual":
                 return await self.async_step_virtual_station()
 
+        # Fetch translations for the current language
+        # translations = await async_get_translations(self.hass, DOMAIN, "config")
+        translations = await async_get_translations(
+            self.hass,
+            language=self.hass.config.language,  # Uses the current language of the Home Assistant instance
+            category="config",
+            integrations=[DOMAIN],  # integration's domain
+        )
+
+        # Retrieve localized labels with fallback
+        real_label = translations.get("step.user.data.station_type_real", "Real Station")
+        virtual_label = translations.get(
+            "step.user.data.station_type_virtual", "Virtual Station")
+
         # Step 1 schema: Collect token and station type
         schema = vol.Schema({
             vol.Required("token"): str,
-            vol.Required("station_type", default="real"): vol.In({
-                "real": "Real Station",  # Internal keys (localization is automatic)
-                "virtual": "Virtual Station",
+            vol.Required(
+                "station_type",
+                default="real"
+            ): vol.In({
+                "real": real_label,
+                "virtual": virtual_label,
             }),
         })
 

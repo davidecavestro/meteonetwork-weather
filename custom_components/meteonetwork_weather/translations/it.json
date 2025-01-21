@@ -4,10 +4,15 @@
         "step": {
             "user": {
                 "title": "Configura MeteoNetwork",
-                "description": "Imposta il token e scegli il tipo di stazione meteo da usare per comunicare con l'API di MeteoNetwork.<br/>Scegli il tipo 'virtuale' se non hai stazioni fisiche vicino a casa.",
+                "description": "Imposta il token e scegli il tipo di stazione meteo da usare per comunicare con l'API di MeteoNetwork",
                 "data": {
                     "token": "Token",
-                    "station_type": "Tipo di stazione"
+                    "station_type": "Tipo di stazione",
+                    "station_type_real": "Stazione fisica",
+                    "station_type_virtual": "Stazione virtuale"
+                },
+                "data_description": {
+                    "station_type": "Scegli il tipo 'virtuale' se non hai stazioni fisiche vicino a casa"
                 }
             },
             "real_station": {
@@ -25,12 +30,6 @@
                     "latitude": "Latitudine",
                     "longitude": "Longitudine"
                 }
-            }
-        },
-        "options": {
-            "station_type": {
-                "real": "Stazione fisica",
-                "virtual": "Stazione virtuale"
             }
         },
         "error": {

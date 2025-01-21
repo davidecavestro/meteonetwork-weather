@@ -4,10 +4,15 @@
         "step": {
             "user": {
                 "title": "Configure MeteoNetwork Weather",
-                "description": "Set the Auth token and select the type of station.<br/>Choose the 'virtual' type if you have no real stations near your home.",
+                "description": "Set the Auth token and select the type of station",
                 "data": {
                     "token": "Auth token",
-                    "station_type": "Type of station"
+                    "station_type": "Type of station",
+                    "station_type_real": "Real Station",
+                    "station_type_virtual": "Virtual Station"
+                },
+                "data_description": {
+                    "station_type": "Choose the 'virtual' type if you have no real stations near your home"
                 }
             },
             "real_station": {
@@ -25,12 +30,6 @@
                     "latitude": "Latitude",
                     "longitude": "Longitude"
                 }
-            }
-        },
-        "options": {
-            "station_type": {
-                "real": "Real Station",
-                "virtual": "Virtual Station"
             }
         },
         "error": {
