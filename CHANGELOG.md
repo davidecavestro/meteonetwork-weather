@@ -1,4 +1,9 @@
 
+## [0.3.2] - 2025-01-25
+### :bug: Bug Fixes
+- [`709ada0`](https://github.com/davidecavestro/meteonetwork-weather/commit/709ada06b53fbec9482b933dc7b044518a446c0e) - weather entity not available for virtual stations *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+
+
 ## [0.3.1] - 2025-01-21
 ### :bug: Bug Fixes
 - [`07951ea`](https://github.com/davidecavestro/meteonetwork-weather/commit/07951eafa45914cbc771627b1964897abdac19c8) - avoid conflicts on virtual stations ids *(commit by [@davidecavestro](https://github.com/davidecavestro))*
@@ -45,3 +50,4 @@
 [0.2.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.2.0...0.2.1
 [0.3.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.2.1...0.3.0
 [0.3.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.3.0...0.3.1
+[0.3.2]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.3.1...0.3.2
