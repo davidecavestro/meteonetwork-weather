@@ -19,11 +19,11 @@ class MeteoNetworkWeatherEntity(CoordinatorEntity, WeatherEntity):
         """Init the entity with config data."""
         super().__init__(coordinator)  # Initialize the CoordinatorEntity
         self.token = config_entry.data['token']
-        self._attr_station_name = config_entry.get('station_name')
-        self._attr_station_id = config_entry.get('station_id')
-        self._attr_latitude = config_entry.get('latitude')
-        self._attr_longitude = config_entry.get('longitude')
-        self._attr_station_type = config_entry.get('station_type')
+        self._attr_station_name = config_entry.data.get('station_name')
+        self._attr_station_id = config_entry.data.get('station_id')
+        self._attr_latitude = config_entry.data.get('latitude')
+        self._attr_longitude = config_entry.data.get('longitude')
+        self._attr_station_type = config_entry.data.get('station_type')
 
         self._attr_unique_id = f"weather.meteonetwork_{
             self._attr_station_id}" if self._attr_station_type == "real" else f"weather.meteonetwork_{self._attr_latitude}_{self._attr_longitude}"
