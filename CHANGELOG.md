@@ -1,4 +1,9 @@
 
+## [0.4.0] - 2025-06-11
+### :sparkles: New Features
+- [`98466bc`](https://github.com/davidecavestro/meteonetwork-weather/commit/98466bc24f519cd66740660a8360cb1d97048f0d) - implement [#2](https://github.com/davidecavestro/meteonetwork-weather/pull/2) providing raw data attrs *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+
+
 ## [0.3.2] - 2025-01-25
 ### :bug: Bug Fixes
 - [`709ada0`](https://github.com/davidecavestro/meteonetwork-weather/commit/709ada06b53fbec9482b933dc7b044518a446c0e) - weather entity not available for virtual stations *(commit by [@davidecavestro](https://github.com/davidecavestro))*
@@ -51,3 +56,4 @@
 [0.3.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.2.1...0.3.0
 [0.3.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.3.0...0.3.1
 [0.3.2]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.3.1...0.3.2
+[0.4.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.3.2...0.4.0
