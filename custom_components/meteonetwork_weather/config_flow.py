@@ -50,34 +50,56 @@ class MeteoNetworkWeatherConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     async def async_step_real_station(self, user_input=None):
         """Step 2: Configure real station."""
+
+        errors = {}
+        description_placeholders = {
+            "link": "<a href=\"https://www.meteonetwork.it/rete/livemap/#\" target=\"_blank\">meteonetwork.it</a>",
+            "error_msg": ""
+        }
+
         if user_input is not None:
             station_id = user_input["station_id"]
 
-            # Fetch station name from API
-            station_name = await self.fetch_station_data(self.token, station_id)
+            try:
+                # Fetch station name from API
+                json_data = await self.fetch_station_data(self.token, station_id)
 
-            return self.async_create_entry(
-                title=station_name,
-                data={
-                    "station_type": "real",
-                    "token": self.token,
-                    "station_id": station_id,
-                    "station_name": station_name,
-                },
-            )
+                # Case 1: If not a list, treat it as an error
+                if not isinstance(json_data, list):
+                    # Maybe it's a dict with error details
+                    if isinstance(json_data, dict) and json_data.get("error") is True:
+                        description_placeholders["error_msg"] = json_data.get(
+                            "message", "Unknown error")
+                        errors["base"] = "remote_error"
+                    else:
+                        raise ValueError("Unexpected response structure")
+
+                else:
+                    # Valid data, continue
+                    station_name = json_data[0]["name"]
+
+                    return self.async_create_entry(
+                        title=station_name,
+                        data={
+                            "station_type": "real",
+                            "token": self.token,
+                            "station_id": station_id,
+                            "station_name": station_name,
+                        },
+                    )
+
+            except (aiohttp.ClientError, ValueError):
+                errors["base"] = "cannot_connect"
 
         # Step 2 schema: Real station configuration
         schema = vol.Schema({
             vol.Required("station_id"): str,
         })
 
-        description_placeholders = {
-            "link": "<a href=\"https://www.meteonetwork.it/rete/livemap/#\" target=\"_blank\">meteonetwork.it</a>",
-        }
-
         return self.async_show_form(
             step_id="real_station",
             data_schema=schema,
+            errors=errors,
             description_placeholders=description_placeholders,
         )
 
@@ -122,6 +144,6 @@ class MeteoNetworkWeatherConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         """Fetch the station data."""
         headers = {"Authorization": f"Bearer {token}"}
         async with aiohttp.ClientSession(headers=headers) as session, session.get(f"{API_BASE}/data-realtime/{station_id}") as response:
-            response.raise_for_status()
-            json_data = (await response.json())[0]
-            return json_data["name"]
+            # response.raise_for_status()
+            json_data = await response.json()
+            return json_data

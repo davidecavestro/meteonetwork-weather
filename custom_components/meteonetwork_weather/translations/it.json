@@ -17,7 +17,7 @@
             },
             "real_station": {
                 "title": "Configura MeteoNetwork - Stazione fisica",
-                "description": "Imposta l'ID della stazione meteo.<br/>Se non ce l'hai puoi cercarlo su {link}",
+                "description": "Imposta l'ID della stazione meteo.<br/>Se non ce l'hai puoi cercarlo su {link}<hr/>{error_msg}",
                 "data": {
                     "station_id": "ID Stazione Meteo"
                 }
@@ -33,7 +33,8 @@
             }
         },
         "error": {
-            "cannot_connect": "Impossibile connettersi all'API. Controlla le impostazioni."
+            "cannot_connect": "Impossibile connettersi all'API. Controlla le impostazioni.",
+            "remote_error": "L'API ha risposto con un errore: vedi il dettaglio sopra."
         }
     },
     "entity": {

@@ -17,7 +17,7 @@
             },
             "real_station": {
                 "title": "Configure MeteoNetwork - Real station",
-                "description": "Set the station ID.<br/>If unsure you can search it at {link}",
+                "description": "Set the station ID.<br/>If unsure you can search it at {link}<hr/>{error_msg}",
                 "data": {
                     "station_id": "Weather Station ID"
                 }
@@ -33,7 +33,8 @@
             }
         },
         "error": {
-            "cannot_connect": "Unable to connect to the API. Check your settings."
+            "cannot_connect": "Unable to connect to the API. Check your settings.",
+            "remote_error": "The API responded with an error: see message above."
         }
     },
     "entity": {
