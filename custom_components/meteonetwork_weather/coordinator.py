@@ -84,6 +84,8 @@ class MeteoNetworkDataUpdateCoordinator(DataUpdateCoordinator):
             data = (await response.json())[0]
             extracted_data["station_name"] = data["name"]
 
+        extracted_data["raw"] = data
+
         # Extract temperature, humidity, and other data
         self._store_float(data, "temperature", extracted_data, "temperature")
         self._store_float(data, "rh", extracted_data, "humidity")

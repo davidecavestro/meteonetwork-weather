@@ -91,23 +91,8 @@ class MeteoNetworkWeatherEntity(CoordinatorEntity, WeatherEntity):
         """Return the pressure from the coordinator data."""
         return self.coordinator.data["sensors"].get("pressure")
 
-    # @property
-    # def extra_state_attributes(self):
-    #     """Return additional attributes."""
-    #     return {
-    #         "station_id": self._attr_station_id,
-    #         #         # "station_name": self.station_name,
-    #         #         # "native_temperature": self.native_temperature,
-    #         #         # "native_temperature_unit": "°C",
-    #         #         # "native_precipitation": self.native_precipitation,
-    #         #         # "native_precipitation_unit": "mm",
-    #         #         # "native_wind_gust_speed": self.native_wind_gust_speed,
-    #         #         # "native_wind_speed": self.native_wind_speed,
-    #         #         # "native_wind_speed_unit": "km/h",
-    #         #         # "native_pressure": self.native_pressure,
-    #         #         # "native_pressure_unit": "hPa",
-    #         #         # "humidity": self.humidity,
-    #         #         # "uv_index": self.uv_index,
-    #         #         # "native_dew_point": self.native_dew_point,
-    #         #         # "wind_bearing": self.wind_bearing,
-    #     }
+    @property
+    def extra_state_attributes(self):
+        """Return additional attributes."""
+        raw_data = self.coordinator.data["sensors"].get("raw", {})
+        return {f"raw_{k}": v for k, v in raw_data.items()}
