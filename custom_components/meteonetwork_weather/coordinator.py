@@ -93,10 +93,11 @@ class MeteoNetworkDataUpdateCoordinator(DataUpdateCoordinator):
         self._store_float(data, "smlp", extracted_data, "pressure")
         self._store_float(data, "wind_speed", extracted_data, "wind_speed")
         self._store_float(data, "wind_gust", extracted_data, "wind_gust")
-        self._store_float(data, "daily_rain", extracted_data, "precipitation")
+        self._store_float(data, "daily_rain", extracted_data, "daily_rain")
         self._store_float(data, "uv", extracted_data, "uv_index")
         self._store_float(data, "dew_point", extracted_data, "dew_point")
         self._store_float(data, "smlp", extracted_data, "pressure")
+        self._store_float(data, "rain_rate", extracted_data, "rain_rate")
 
         if (extracted_data.get("wind_bearing")) is None:
             if (value := data.get("wind_direction_degree")) is not None:

@@ -48,9 +48,6 @@
             "native_pressure": {
                 "name": "Pressure in {station_name}"
             },
-            "precipitation": {
-                "name": "Precipitation in {station_name}"
-            },
             "wind_bearing": {
                 "name": "Wind bearing in {station_name}"
             },
@@ -63,8 +60,11 @@
             "native_dew_point": {
                 "name": "Dew point in {station_name}"
             },
-            "native_precipitation": {
-                "name": "Precipitation in {station_name}"
+            "daily_rain": {
+                "name": "Daily rain in {station_name}"
+            },
+            "rain_rate": {
+                "name": "Rain rate in {station_name}"
             }
         },
         "weather": {

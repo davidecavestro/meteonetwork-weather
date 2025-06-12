@@ -63,8 +63,11 @@
             "native_dew_point": {
                 "name": "Punto di rugiada a {station_name}"
             },
-            "native_precipitation": {
-                "name": "Precipitazioni a {station_name}"
+            "daily_rain": {
+                "name": "Pioggia giornaliera a {station_name}"
+            },
+            "rain_rate": {
+                "name": "Pioggia istantanea a {station_name}"
             }
         },
         "weather": {

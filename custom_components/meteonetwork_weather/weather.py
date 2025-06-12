@@ -57,9 +57,9 @@ class MeteoNetworkWeatherEntity(CoordinatorEntity, WeatherEntity):
         return self.coordinator.data["sensors"].get("visibility")
 
     @property
-    def native_precipitation(self):
-        """Return the precipitation from the coordinator data."""
-        return self.coordinator.data["sensors"].get("precipitation")
+    def daily_rain(self):
+        """Return the daily rain from the coordinator data."""
+        return self.coordinator.data["sensors"].get("daily_rain")
 
     @property
     def wind_bearing(self):
@@ -90,6 +90,11 @@ class MeteoNetworkWeatherEntity(CoordinatorEntity, WeatherEntity):
     def native_pressure(self):
         """Return the pressure from the coordinator data."""
         return self.coordinator.data["sensors"].get("pressure")
+
+    @property
+    def rain_rate(self):
+        """Return the rain rate from the coordinator data."""
+        return self.coordinator.data["sensors"].get("rain_rate")
 
     @property
     def extra_state_attributes(self):

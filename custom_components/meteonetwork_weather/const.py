@@ -23,11 +23,11 @@ SENSOR_TYPES = {
         "device_class": "pressure",
         "data_key": "pressure",
     },
-    "native_precipitation": {
-        "name": "Precipitation",
+    "daily_rain": {
+        "name": "Daily rain",
         "unit": "mm",
         "device_class": "precipitation",
-        "data_key": "precipitation",
+        "data_key": "daily_rain",
     },
     "wind_bearing": {
         "name": "Wind bearing",
@@ -51,6 +51,12 @@ SENSOR_TYPES = {
         "unit": "°C",
         "device_class": "dew_point",
         "data_key": "dew_point",
+    },
+    "rain_rate": {
+        "name": "Rain rate",
+        "unit": "mm/h",
+        "device_class": "precipitation",
+        "data_key": "rain_rate",
     },
 }
 
