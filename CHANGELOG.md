@@ -1,4 +1,10 @@
 
+## [0.5.0] - 2025-06-12
+### :sparkles: New Features
+- [`f594aa5`](https://github.com/davidecavestro/meteonetwork-weather/commit/f594aa55f984816bc39504e0948ea14e25b73a6f) - partially fix [#4](https://github.com/davidecavestro/meteonetwork-weather/pull/4) showing config time response errors *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+- [`9bc19d6`](https://github.com/davidecavestro/meteonetwork-weather/commit/9bc19d6b43948764f349853ed5ed53dfa58f45ef) - as per [#2](https://github.com/davidecavestro/meteonetwork-weather/pull/2) add rain_rate and rename native_precitpitation to daily_rain *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+
+
 ## [0.4.0] - 2025-06-11
 ### :sparkles: New Features
 - [`98466bc`](https://github.com/davidecavestro/meteonetwork-weather/commit/98466bc24f519cd66740660a8360cb1d97048f0d) - implement [#2](https://github.com/davidecavestro/meteonetwork-weather/pull/2) providing raw data attrs *(commit by [@davidecavestro](https://github.com/davidecavestro))*
@@ -57,3 +63,4 @@
 [0.3.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.3.0...0.3.1
 [0.3.2]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.3.1...0.3.2
 [0.4.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.3.2...0.4.0
+[0.5.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.4.0...0.5.0
