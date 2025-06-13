@@ -13,6 +13,12 @@ This integration adds support for retrieving the current conditions from [MeteoN
 A valid Auth token for MeteoNetwork API is required.
 You can configure multiple MeteoNetwork weather stations to get observed weather conditions.
 
+> **Warning:** If the MeteoNetwork station you want to add is _not under a **CC-BY 4.0** license_, most certainly
+its data will most certainly not be available through the API, so this integration will not work.
+However you can still use [Mauro Giacomelli’s repository](https://github.com/mgiako/MeteoNetwork-HTML-Scraper), which reads values directly from the station’s webpage via scraping.
+
+> **Info:**  If you are interested in an ARPA Veneto station that doesn't work with this Meteonetwork integration, you can also try the [arpa-veneto-weather](https://github.com/davidecavestro/arpa-veneto-weather).
+
 #### This integration will set up the following platforms.
 
 Platform | Description
@@ -57,12 +63,6 @@ To add MeteoNetwork Weather to your installation, do the following:
 - Complete the wizard to save your data. If all goes well you should now have a new Weather entity with data from MeteoNetwork Forecast
 - **Please Note**: You can configure multiple instances of the Integration.
 
-
-> **Warning:** If the MeteoNetwork station you want to add is _not under a **CC-BY 4.0** license_, most certainly
-its data will most certainly not be available through the API, so this integration will not work.
-However you can still use [Mauro Giacomelli’s repository](https://github.com/mgiako/MeteoNetwork-HTML-Scraper), which reads values directly from the station’s webpage via scraping.
-
-> **Info:**  If you are interested in an ARPA Veneto station that doesn't work with this Meteonetwork integration, you can also try the [arpa-veneto-weather](https://github.com/davidecavestro/arpa-veneto-weather).
 
 ## Enable Debug Logging
 
