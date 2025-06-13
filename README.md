@@ -14,7 +14,7 @@ A valid Auth token for MeteoNetwork API is required.
 You can configure multiple MeteoNetwork weather stations to get observed weather conditions.
 
 > **Warning:** If the MeteoNetwork station you want to add is _not under a **CC-BY 4.0** license_, most certainly
-its data will most certainly not be available through the API, so this integration will not work.
+its data will not be available through the API, so this integration will not work.
 However you can still use [Mauro Giacomelli’s repository](https://github.com/mgiako/MeteoNetwork-HTML-Scraper), which reads values directly from the station’s webpage via scraping.
 
 > **Info:**  If you are interested in an ARPA Veneto station that doesn't work with this Meteonetwork integration, you can also try the [arpa-veneto-weather](https://github.com/davidecavestro/arpa-veneto-weather).
