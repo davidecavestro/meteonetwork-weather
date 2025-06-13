@@ -20,7 +20,7 @@ Platform | Description
 `weather` | A Home Assistant `weather` entity, with current data.
 `sensor` | A Home Assistant `sensor` entity, with all available sensor from the API.
 
-Minimum required version of Home Assistant is **2024.11.0** as this integration uses the new Weather entity forecast types.
+Minimum required version of Home Assistant is **2025.1.4** as this integration uses the new Weather entity forecast types.
 
 ## Installation through HACS (Recommended Method)
 
@@ -56,6 +56,13 @@ To add MeteoNetwork Weather to your installation, do the following:
 
 - Complete the wizard to save your data. If all goes well you should now have a new Weather entity with data from MeteoNetwork Forecast
 - **Please Note**: You can configure multiple instances of the Integration.
+
+
+> **Warning:** If the MeteoNetwork station you want to add is _not under a **CC-BY 4.0** license_, most certainly
+its data will most certainly not be available through the API, so this integration will not work.
+However you can still use [Mauro Giacomelli’s repository](https://github.com/mgiako/MeteoNetwork-HTML-Scraper), which reads values directly from the station’s webpage via scraping.
+
+> **Info:**  If you are interested in an ARPA Veneto station that doesn't work with this Meteonetwork integration, you can also try the [arpa-veneto-weather](https://github.com/davidecavestro/arpa-veneto-weather).
 
 ## Enable Debug Logging
 
