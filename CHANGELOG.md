@@ -1,4 +1,9 @@
 
+## [0.5.1] - 2025-06-13
+### :bug: Bug Fixes
+- [`c2344dc`](https://github.com/davidecavestro/meteonetwork-weather/commit/c2344dc44ee0c4cd7133976d8772f0817678760d) - enforce rate limit for requests per minutes, not per second *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+
+
 ## [0.5.0] - 2025-06-12
 ### :sparkles: New Features
 - [`f594aa5`](https://github.com/davidecavestro/meteonetwork-weather/commit/f594aa55f984816bc39504e0948ea14e25b73a6f) - partially fix [#4](https://github.com/davidecavestro/meteonetwork-weather/pull/4) showing config time response errors *(commit by [@davidecavestro](https://github.com/davidecavestro))*
@@ -64,3 +69,4 @@
 [0.3.2]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.3.1...0.3.2
 [0.4.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.3.2...0.4.0
 [0.5.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.4.0...0.5.0
+[0.5.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.5.0...0.5.1
