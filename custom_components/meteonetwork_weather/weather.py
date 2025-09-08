@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from homeassistant.components.weather import WeatherEntity
+from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import DOMAIN, CONF_EXPOSE_RAW_DATA
@@ -36,6 +37,14 @@ class MeteoNetworkWeatherEntity(CoordinatorEntity, WeatherEntity):
         self._attr_translation_placeholders = {
             "station_name": self._attr_station_name,
         }
+
+    @property
+    def device_info(self) -> DeviceInfo:
+        """Return the device info."""
+        return DeviceInfo(
+            identifiers={(DOMAIN, self.config_entry.entry_id)},
+            name="Meteonetwork Weather",
+        )
 
     @property
     def station_id(self):

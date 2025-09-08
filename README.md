@@ -26,8 +26,6 @@ Platform | Description
 `weather` | A Home Assistant `weather` entity, with current data.
 `sensor` | A Home Assistant `sensor` entity, with all available sensor from the API.
 
-Minimum required version of Home Assistant is **2025.1.4** as this integration uses the new Weather entity forecast types.
-
 ## Installation through HACS (Recommended Method)
 
 If you are not familiar with HACS, or haven't installed it, I would recommend to [look through the HACS documentation](https://hacs.xyz/), before continuing.

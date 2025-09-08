@@ -1,5 +1,6 @@
 """Sensors for MeteoNetwork Weather component."""
 from homeassistant.components.sensor import SensorEntity
+from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_registry import async_get as async_get_registry
 from homeassistant.helpers.update_coordinator import CoordinatorEntity, DataUpdateCoordinator
 
@@ -73,6 +74,7 @@ class MeteoNetworkSensor(CoordinatorEntity[DataUpdateCoordinator], SensorEntity)
         """Initialize the sensor."""
         super().__init__(coordinator)  # Initialize the CoordinatorEntity
         self.coordinator = coordinator
+        self._config_entry = config_entry
         self._attr_station_id = config_entry.data.get("station_id")
         self.station_name = config_entry.data.get("station_name")
         self.sensor_key = sensor_key
@@ -91,6 +93,14 @@ class MeteoNetworkSensor(CoordinatorEntity[DataUpdateCoordinator], SensorEntity)
         self._attr_translation_placeholders = {"station_name": self.station_name}
 
         self._data_key = sensor["data_key"]
+
+    @property
+    def device_info(self) -> DeviceInfo:
+        """Return the device info."""
+        return DeviceInfo(
+            identifiers={(DOMAIN, self._config_entry.entry_id)},
+            name="Meteonetwork Weather",
+        )
 
     async def amend_from_registry(self, registry):
         """Check if this entity already exists in the registry."""
