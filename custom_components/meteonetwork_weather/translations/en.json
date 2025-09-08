@@ -37,6 +37,17 @@
             "remote_error": "The API responded with an error: see message above."
         }
     },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "expose_raw_data": "Expose JSON extra attributes for raw data",
+                    "expose_extended_sensors": "Expose extended sensors (see documentation)",
+                    "expose_station_attrs_as_sensors": "Expose station attributes as sensors"
+                }
+            }
+        }
+    },
     "entity": {
         "sensor": {
             "native_temperature": {
@@ -65,6 +76,93 @@
             },
             "rain_rate": {
                 "name": "Rain rate in {station_name}"
+            },
+            "observation_time_local": {
+                "name": "Observation time in {station_name}"
+            },
+            "observation_time_utc": {
+                "name": "Observation time (UTC) in {station_name}"
+            },
+            "station_name": {
+                "name": "Station name for {station_name}"
+            },
+            "station_code": {
+                "name": "Station code for {station_name}"
+            },
+            "station_place": {
+                "name": "Station place for {station_name}"
+            },
+            "station_area": {
+                "name": "Station area for {station_name}"
+            },
+            "latitude": {
+                "name": "Latitude for {station_name}"
+            },
+            "longitude": {
+                "name": "Longitude for {station_name}"
+            },
+            "altitude": {
+                "name": "Altitude for {station_name}"
+            },
+            "country": {
+                "name": "Country code for {station_name}"
+            },
+            "region_name": {
+                "name": "Region/State for {station_name}"
+            },
+            "rad": {
+                "name": "Solar radiation index in {station_name}"
+            },
+            "wind_direction": {
+                "name": "Wind direction cardinals in {station_name}"
+            },
+            "wind_direction_degrees": {
+                "name": "Wind direction degrees in {station_name}"
+            },
+            "wind_gust": {
+                "name": "Wind gust in {station_name}"
+            },
+            "uv": {
+                "name": "UV in {station_name}"
+            },
+            "current_tmin": {
+                "name": "Current daily low temperature in {station_name}"
+            },
+            "current_tmed": {
+                "name": "Current daily average temperature in {station_name}"
+            },
+            "current_tmax": {
+                "name": "Current daily high temperature in {station_name}"
+            },
+            "current_rhmin": {
+                "name": "Current daily low relative humidity in {station_name}"
+            },
+            "current_rhmed": {
+                "name": "Current daily average relative humidity in {station_name}"
+            },
+            "current_rhmax": {
+                "name": "Current daily high relative humidity in {station_name}"
+            },
+            "current_wgustmax": {
+                "name": "Current daily max wind gust in {station_name}"
+            },
+            "current_wspeedmax": {
+                "name": "Current daily max wind speed in {station_name}"
+            },
+            "current_wspeedmed": {
+                "name": "Current daily average wind speed in {station_name}"
+            },
+            "current_uvmed": {
+                "name": "Current daily average UV in {station_name}"
+            },
+            "current_uvmax": {
+                "name": "Current daily high UV in {station_name}"
+            },
+            "current_radmed": {
+                "name": "Current daily average radiation in {station_name}"
+            },
+            "current_radmax": {
+                "name": "Current daily high radiation in {station_name}"
             }
         },
         "weather": {

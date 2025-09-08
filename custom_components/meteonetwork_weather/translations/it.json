@@ -37,6 +37,17 @@
             "remote_error": "L'API ha risposto con un errore: vedi il dettaglio sopra."
         }
     },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "expose_raw_data": "Esponi attributi extra JSON per i dati grezzi",
+                    "expose_extended_sensors": "Esponi sensori estesi (vedi documentazione)",
+                    "expose_station_attrs_as_sensors": "Esponi attributi della stazione come sensori"
+                }
+            }
+        }
+    },
     "entity": {
         "sensor": {
             "native_temperature": {
@@ -68,6 +79,93 @@
             },
             "rain_rate": {
                 "name": "Pioggia istantanea a {station_name}"
+            },
+            "observation_time_local": {
+                "name": "Ora osservazione (locale) a {station_name}"
+            },
+            "observation_time_utc": {
+                "name": "Ora osservazione (UTC) a {station_name}"
+            },
+            "station_name": {
+                "name": "Nome stazione di {station_name}"
+            },
+            "station_code": {
+                "name": "Codice stazione di {station_name}"
+            },
+            "station_place": {
+                "name": "Località stazione di {station_name}"
+            },
+            "station_area": {
+                "name": "Area stazione di {station_name}"
+            },
+            "latitude": {
+                "name": "Latitudine di {station_name}"
+            },
+            "longitude": {
+                "name": "Longitudine di {station_name}"
+            },
+            "altitude": {
+                "name": "Altitude for {station_name}"
+            },
+            "country": {
+                "name": "Codice nazione di {station_name}"
+            },
+            "region_name": {
+                "name": "Nome regione di {station_name}"
+            },
+            "rad": {
+                "name": "Radiazione a {station_name}"
+            },
+            "wind_direction": {
+                "name": "Direzione vento a {station_name}"
+            },
+            "wind_direction_degrees": {
+                "name": "Gradi direzione vento a {station_name}"
+            },
+            "wind_gust": {
+                "name": "Raffica vento a {station_name}"
+            },
+            "uv": {
+                "name": "UV a {station_name}"
+            },
+            "current_tmin": {
+                "name": "Temperatura minima giornaliera attuale a {station_name}"
+            },
+            "current_tmed": {
+                "name": "Temperatura media giornaliera attuale a {station_name}"
+            },
+            "current_tmax": {
+                "name": "Temperatura massima giornaliera attuale a {station_name}"
+            },
+            "current_rhmin": {
+                "name": "Umidità minima giornaliera attuale a {station_name}"
+            },
+            "current_rhmed": {
+                "name": "Umidità media giornaliera attuale a {station_name}"
+            },
+            "current_rhmax": {
+                "name": "Umidità massima giornaliera attuale a {station_name}"
+            },
+            "current_wgustmax": {
+                "name": "Raffica vento massima giornaliera attuale a {station_name}"
+            },
+            "current_wspeedmax": {
+                "name": "Velocità vento massima giornaliera attuale a {station_name}"
+            },
+            "current_wspeedmed": {
+                "name": "Velocità vento media giornaliera attuale a {station_name}"
+            },
+            "current_uvmed": {
+                "name": "UV medio giornaliero attuale a {station_name}"
+            },
+            "current_uvmax": {
+                "name": "UV massimo giornaliero attuale a {station_name}"
+            },
+            "current_radmed": {
+                "name": "Radiazione media giornaliera attuale a {station_name}"
+            },
+            "current_radmax": {
+                "name": "Radiazione massima giornaliera attuale a {station_name}"
             }
         },
         "weather": {

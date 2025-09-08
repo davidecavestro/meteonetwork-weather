@@ -4,7 +4,7 @@ from __future__ import annotations
 from homeassistant.components.weather import WeatherEntity
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import DOMAIN
+from .const import DOMAIN, CONF_EXPOSE_RAW_DATA
 
 async def async_setup_entry(hass, config_entry, async_add_entities):
     """Set up MeteoNetwork sensors from a config entry."""
@@ -19,6 +19,7 @@ class MeteoNetworkWeatherEntity(CoordinatorEntity, WeatherEntity):
         """Init the entity with config data."""
         super().__init__(coordinator)  # Initialize the CoordinatorEntity
         self.token = config_entry.data['token']
+        self.config_entry = config_entry
         self._attr_station_name = config_entry.data.get('station_name')
         self._attr_station_id = config_entry.data.get('station_id')
         self._attr_latitude = config_entry.data.get('latitude')
@@ -100,4 +101,5 @@ class MeteoNetworkWeatherEntity(CoordinatorEntity, WeatherEntity):
     def extra_state_attributes(self):
         """Return additional attributes."""
         raw_data = self.coordinator.data["sensors"].get("raw", {})
-        return {f"raw_{k}": v for k, v in raw_data.items()}
+        expose = self.config_entry.options.get(CONF_EXPOSE_RAW_DATA)
+        return {f"raw_{k}": v for k, v in raw_data.items()} if expose is None or expose else {}

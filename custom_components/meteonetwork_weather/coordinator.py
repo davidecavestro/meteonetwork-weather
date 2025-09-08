@@ -87,6 +87,11 @@ class MeteoNetworkDataUpdateCoordinator(DataUpdateCoordinator):
         extracted_data["raw"] = data
 
         # Extract temperature, humidity, and other data
+        for key, value in data.items():
+            if isinstance(value, str) and value.replace('.', '', 1).isdigit():
+                self._store_float(data, key, extracted_data, key)
+            else:
+                extracted_data[key] = value
         self._store_float(data, "temperature", extracted_data, "temperature")
         self._store_float(data, "rh", extracted_data, "humidity")
         self._store_float(data, "wind_direction", extracted_data, "wind_bearing")

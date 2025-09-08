@@ -1,14 +1,21 @@
 """Config flow to configure MeteoNetwork Weather component."""
 import aiohttp
 import voluptuous as vol
-from homeassistant import config_entries
+from homeassistant.config_entries import ConfigFlow, OptionsFlow
+from homeassistant.core import callback
 from homeassistant.helpers.translation import async_get_translations
-from .const import DOMAIN, API_BASE
+from .const import DOMAIN, API_BASE, CONF_EXPOSE_RAW_DATA, CONF_EXPOSE_EXTENDED_SENSORS, CONF_EXPOSE_STATION_ATTRS_AS_SENSORS
 
-class MeteoNetworkWeatherConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
+class MeteoNetworkWeatherConfigFlow(ConfigFlow, domain=DOMAIN):
     """Handle a config flow for MeteoNetwork Weather."""
 
     VERSION = 1
+
+    @staticmethod
+    @callback
+    def async_get_options_flow(config_entry):
+        """Implement OptionsFlow."""
+        return MeteoNetworkWeatherOptionsFlowHandler()
 
     async def async_step_user(self, user_input=None):
         """Step 1: Collect the token and choose the station type."""
@@ -147,3 +154,47 @@ class MeteoNetworkWeatherConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             # response.raise_for_status()
             json_data = await response.json()
             return json_data
+
+
+class MeteoNetworkWeatherOptionsFlowHandler(OptionsFlow):
+    """Reconfigure integration options.
+
+    Available options are:
+        * enable raw JSON attributes
+        * expose all sensors
+        * expose all sensors
+    """
+
+    @property
+    def config_entry(self):
+        """Return the config entry."""
+        return self.hass.config_entries.async_get_entry(self.handler)
+
+    async def async_step_init(self, user_input=None):
+        """Manage the options."""
+
+        if user_input is not None:
+            return self.async_create_entry(title="Configure options", data=user_input)
+
+        return self.async_show_form(
+            step_id="init",
+            data_schema=vol.Schema(
+                {
+                    vol.Optional(
+                        CONF_EXPOSE_EXTENDED_SENSORS,
+                        default=self.config_entry.options.get(
+                            CONF_EXPOSE_EXTENDED_SENSORS) or False
+                    ): bool,
+                    vol.Optional(
+                        CONF_EXPOSE_STATION_ATTRS_AS_SENSORS,
+                        default=self.config_entry.options.get(
+                            CONF_EXPOSE_STATION_ATTRS_AS_SENSORS) or False
+                    ): bool,
+                    vol.Optional(
+                        CONF_EXPOSE_RAW_DATA,
+                        default=self.config_entry.options.get(
+                            CONF_EXPOSE_RAW_DATA) or True  # fo backward compatibility
+                    ): bool,
+                }
+            ),
+        )

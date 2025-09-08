@@ -63,6 +63,14 @@ To add MeteoNetwork Weather to your installation, do the following:
 - Complete the wizard to save your data. If all goes well you should now have a new Weather entity with data from MeteoNetwork Forecast
 - **Please Note**: You can configure multiple instances of the Integration.
 
+### Preferences
+
+Once you have configured a station, you can control some options from ⚙ (its _Configure_ action):
+
+- **Expose extended sensors**: Expose additional sensors, covering daily high/avg/low temperature and so on
+- **Expose station attributes as sensors**: Expose as sensors some station attributes such as longitude, latitude, altitude, etc
+- **Expose JSON extra attributes for raw data**: Expose JSON extra attributes for raw data
+
 
 ## Enable Debug Logging
 
