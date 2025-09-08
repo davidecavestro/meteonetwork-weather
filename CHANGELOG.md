@@ -1,4 +1,13 @@
 
+## [0.6.0] - 2025-09-08
+### :sparkles: New Features
+- [`48d43bd`](https://github.com/davidecavestro/meteonetwork-weather/commit/48d43bdde1973749252ca5fa7969dd2706e6d725) - provide additional sensors *(PR [#7](https://github.com/davidecavestro/meteonetwork-weather/pull/7) by [@davidecavestro](https://github.com/davidecavestro))*
+- [`8ebef8f`](https://github.com/davidecavestro/meteonetwork-weather/commit/8ebef8f3922ff62599caf2e3966d5859b5a2c1b3) - add device to group sensors *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+
+### :wrench: Chores
+- [`fe0192b`](https://github.com/davidecavestro/meteonetwork-weather/commit/fe0192b21d2e9e0d17c19fad10ca5b3925cc3c38) - bump up HA adding to devcontainer missing pkgs *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+
+
 ## [0.5.1] - 2025-06-13
 ### :bug: Bug Fixes
 - [`c2344dc`](https://github.com/davidecavestro/meteonetwork-weather/commit/c2344dc44ee0c4cd7133976d8772f0817678760d) - enforce rate limit for requests per minutes, not per second *(commit by [@davidecavestro](https://github.com/davidecavestro))*
@@ -70,3 +79,4 @@
 [0.4.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.3.2...0.4.0
 [0.5.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.4.0...0.5.0
 [0.5.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.5.0...0.5.1
+[0.6.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.5.1...0.6.0
