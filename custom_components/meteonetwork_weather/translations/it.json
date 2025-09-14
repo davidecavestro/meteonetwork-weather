@@ -142,7 +142,7 @@
                 "name": "Raffica vento a {station_name}"
             },
             "uv": {
-                "name": "Indice UV a {station_name}"
+                "name": "UV a {station_name}"
             },
             "current_tmin": {
                 "name": "Temperatura minima giornaliera attuale a {station_name}"
