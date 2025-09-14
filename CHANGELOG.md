@@ -1,4 +1,9 @@
 
+## [0.7.0] - 2025-09-14
+### :sparkles: New Features
+- [`a179ce8`](https://github.com/davidecavestro/meteonetwork-weather/commit/a179ce8f4a7669142899be5ea5cb6207c2529b21) - opt-in for best effort condition detection (closes [#10](https://github.com/davidecavestro/meteonetwork-weather/pull/10)) *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+
+
 ## [0.6.0] - 2025-09-08
 ### :sparkles: New Features
 - [`48d43bd`](https://github.com/davidecavestro/meteonetwork-weather/commit/48d43bdde1973749252ca5fa7969dd2706e6d725) - provide additional sensors *(PR [#7](https://github.com/davidecavestro/meteonetwork-weather/pull/7) by [@davidecavestro](https://github.com/davidecavestro))*
@@ -80,3 +85,4 @@
 [0.5.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.4.0...0.5.0
 [0.5.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.5.0...0.5.1
 [0.6.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.5.1...0.6.0
+[0.7.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.6.0...0.7.0
