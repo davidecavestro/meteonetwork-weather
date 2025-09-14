@@ -1,4 +1,12 @@
 
+## [0.7.1] - 2025-09-14
+### :bug: Bug Fixes
+- [`f2d833f`](https://github.com/davidecavestro/meteonetwork-weather/commit/f2d833f95a822e12cd48e92f8cafa33faa5c7dd6) - avoid name collision for UV entity *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+
+### :wrench: Chores
+- [`07a31eb`](https://github.com/davidecavestro/meteonetwork-weather/commit/07a31eb75b37726a711086d464ffd6ac48b4707c) - reword docs *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+
+
 ## [0.7.0] - 2025-09-14
 ### :sparkles: New Features
 - [`a179ce8`](https://github.com/davidecavestro/meteonetwork-weather/commit/a179ce8f4a7669142899be5ea5cb6207c2529b21) - opt-in for best effort condition detection (closes [#10](https://github.com/davidecavestro/meteonetwork-weather/pull/10)) *(commit by [@davidecavestro](https://github.com/davidecavestro))*
@@ -86,3 +94,4 @@
 [0.5.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.5.0...0.5.1
 [0.6.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.5.1...0.6.0
 [0.7.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.6.0...0.7.0
+[0.7.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.7.0...0.7.1
