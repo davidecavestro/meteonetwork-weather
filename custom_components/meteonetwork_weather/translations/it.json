@@ -43,8 +43,24 @@
                 "data": {
                     "expose_raw_data": "Esponi attributi extra JSON per i dati grezzi",
                     "expose_extended_sensors": "Esponi sensori estesi (vedi documentazione)",
-                    "expose_station_attrs_as_sensors": "Esponi attributi della stazione come sensori"
+                    "expose_station_attrs_as_sensors": "Esponi attributi della stazione come sensori",
+                    "infer_condition": "Calcola la condizione attuale"
                 }
+            },
+            "thresholds": {
+                "data": {
+                    "day_clear_threshold": "Soglia cielo sereno diurno (0 a 1)",
+                    "day_partly_threshold": "Soglia parzialmente nuvoloso diurno (0 a 1)"
+                }
+            }
+        }
+    },
+    "selector": {
+        "infer_condition": {
+            "options": {
+                "infer_condition_from_sensors": "Dai sensori disponibili",
+                "infer_condition_from_sensors_with_custom_thresholds": "Dai sensori usando soglie personalizzate",
+                "infer_condition_disabled": "Non calcolare"
             }
         }
     },
@@ -114,7 +130,7 @@
                 "name": "Nome regione di {station_name}"
             },
             "rad": {
-                "name": "Radiazione a {station_name}"
+                "name": "Radiazione solare a {station_name}"
             },
             "wind_direction": {
                 "name": "Direzione vento a {station_name}"
@@ -126,7 +142,7 @@
                 "name": "Raffica vento a {station_name}"
             },
             "uv": {
-                "name": "UV a {station_name}"
+                "name": "Indice UV a {station_name}"
             },
             "current_tmin": {
                 "name": "Temperatura minima giornaliera attuale a {station_name}"

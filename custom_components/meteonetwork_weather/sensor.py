@@ -6,10 +6,6 @@ from homeassistant.helpers.update_coordinator import CoordinatorEntity, DataUpda
 
 from .const import DOMAIN, SENSOR_TYPES, CONF_EXPOSE_EXTENDED_SENSORS, CONF_EXPOSE_STATION_ATTRS_AS_SENSORS, SENSOR_TYPES_EXTENDED, SENSOR_TYPES_STATION
 
-import logging
-
-_LOGGER = logging.getLogger(__name__)
-
 async def async_setup_entry(hass, config_entry, async_add_entities):
     """Set up MeteoNetwork sensors from a config entry."""
     coordinator = hass.data[DOMAIN][config_entry.entry_id]
@@ -42,7 +38,6 @@ async def _setup_sensors(hass, config_entry, coordinator, async_add_entities):
     """CONfigure sensors based on current options."""
     # Remove existing sensors
     for sensor in hass.data[DOMAIN][config_entry.entry_id].get('sensors', []):
-        _LOGGER.warning("async_remove")
         await sensor.async_remove()
 
     extended = SENSOR_TYPES_EXTENDED if config_entry.options.get(

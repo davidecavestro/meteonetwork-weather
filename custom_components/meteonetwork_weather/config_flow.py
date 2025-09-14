@@ -4,7 +4,21 @@ import voluptuous as vol
 from homeassistant.config_entries import ConfigFlow, OptionsFlow
 from homeassistant.core import callback
 from homeassistant.helpers.translation import async_get_translations
-from .const import DOMAIN, API_BASE, CONF_EXPOSE_RAW_DATA, CONF_EXPOSE_EXTENDED_SENSORS, CONF_EXPOSE_STATION_ATTRS_AS_SENSORS
+from homeassistant.helpers import selector
+from .const import (
+    DOMAIN, API_BASE,
+    CONF_EXPOSE_RAW_DATA,
+    CONF_EXPOSE_EXTENDED_SENSORS,
+    CONF_EXPOSE_STATION_ATTRS_AS_SENSORS,
+    CONF_INFER_CONDITION,
+    CONF_INFER_CONDITION_FROM_SENSORS_WITH_CUSTOM_THRESHOLDS as CUSTOM_THRESHOLDS,
+    CONF_INFER_CONDITION_FROM_SENSORS,
+    CONF_INFER_CONDITION_DISABLED,
+    CONF_INFER_CONDITION_DAY_CLEAR_THRESHOLD as DAY_CLEAR_THRESHOLD,
+    CONF_INFER_CONDITION_DAY_CLEAR_THRESHOLD_DEFAULT as DAY_CLEAR_THRESHOLD_DEFAULT,
+    CONF_INFER_CONDITION_DAY_PARTLY_THRESHOLD as DAY_PARTLY_THRESHOLD,
+    CONF_INFER_CONDITION_DAY_PARTLY_THRESHOLD_DEFAULT as DAY_PARTLY_THRESHOLD_DEFAULT,
+)
 
 class MeteoNetworkWeatherConfigFlow(ConfigFlow, domain=DOMAIN):
     """Handle a config flow for MeteoNetwork Weather."""
@@ -174,6 +188,12 @@ class MeteoNetworkWeatherOptionsFlowHandler(OptionsFlow):
         """Manage the options."""
 
         if user_input is not None:
+            # store data in the flow instance
+            self._stored_data = dict(user_input)
+
+            if user_input.get(CONF_INFER_CONDITION) == CUSTOM_THRESHOLDS:
+                return await self.async_step_thresholds()
+
             return self.async_create_entry(title="Configure options", data=user_input)
 
         return self.async_show_form(
@@ -195,6 +215,47 @@ class MeteoNetworkWeatherOptionsFlowHandler(OptionsFlow):
                         default=self.config_entry.options.get(
                             CONF_EXPOSE_RAW_DATA) or True  # fo backward compatibility
                     ): bool,
+                    vol.Optional(
+                        CONF_INFER_CONDITION,
+                        default=self.config_entry.options.get(
+                            CONF_INFER_CONDITION) or CONF_INFER_CONDITION_DISABLED
+                    ): selector.SelectSelector(
+                        selector.SelectSelectorConfig(
+                            options=[
+                                CONF_INFER_CONDITION_FROM_SENSORS,
+                                CUSTOM_THRESHOLDS,
+                                CONF_INFER_CONDITION_DISABLED,
+                            ],
+                            mode=selector.SelectSelectorMode.LIST,
+                            translation_key=CONF_INFER_CONDITION
+                        ),
+                    )
                 }
             ),
+        )
+
+    async def async_step_thresholds(self, user_input=None):
+        """Manage the thresholds options."""
+        if user_input is not None:
+            # Merge thresholds + step1 options
+            self._stored_data.update(user_input)
+            return self.async_create_entry(title="", data=self._stored_data)
+
+        conf = self.config_entry.options
+        return self.async_show_form(
+            step_id="thresholds",
+            data_schema=vol.Schema({
+                vol.Optional(DAY_CLEAR_THRESHOLD,
+                             default=conf.get(DAY_CLEAR_THRESHOLD, DAY_CLEAR_THRESHOLD_DEFAULT)
+                             ): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=0, max=1, step=0.01, mode=selector.NumberSelectorMode.BOX)
+                ),
+                vol.Optional(DAY_PARTLY_THRESHOLD,
+                             default=conf.get(DAY_PARTLY_THRESHOLD, DAY_PARTLY_THRESHOLD_DEFAULT)
+                             ): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=0, max=1, step=0.01, mode=selector.NumberSelectorMode.BOX)
+                ),
+            })
         )

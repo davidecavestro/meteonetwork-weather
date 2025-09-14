@@ -7,6 +7,15 @@ API_BASE = "https://api.meteonetwork.it/v3"
 CONF_EXPOSE_RAW_DATA = "expose_raw_data"
 CONF_EXPOSE_EXTENDED_SENSORS = "expose_extended_sensors"
 CONF_EXPOSE_STATION_ATTRS_AS_SENSORS = "expose_station_attrs_as_sensors"
+CONF_INFER_CONDITION = "infer_condition"
+CONF_INFER_CONDITION_FROM_SENSORS = "infer_condition_from_sensors"
+CONF_INFER_CONDITION_FROM_SENSORS_WITH_CUSTOM_THRESHOLDS = "infer_condition_from_sensors_with_custom_thresholds"
+CONF_INFER_CONDITION_DISABLED = "infer_condition_disabled"
+
+CONF_INFER_CONDITION_DAY_CLEAR_THRESHOLD = "day_clear_threshold"
+CONF_INFER_CONDITION_DAY_CLEAR_THRESHOLD_DEFAULT = 0.75
+CONF_INFER_CONDITION_DAY_PARTLY_THRESHOLD = "day_partly_threshold"
+CONF_INFER_CONDITION_DAY_PARTLY_THRESHOLD_DEFAULT = 0.40
 
 SENSOR_TYPES = {
     "native_temperature": {
@@ -78,8 +87,8 @@ SENSOR_TYPES_EXTENDED = {
         "data_key": "observation_time_utc",
     },
     "rad": {
-        "name": "Radiation (index)",
-        "unit": "UV index",
+        "name": "Solar radiation",
+        "unit": "W/m2",
         "device_class": "uv_index",
         "data_key": "rad",
     },
@@ -103,7 +112,7 @@ SENSOR_TYPES_EXTENDED = {
     },
     "uv": {
         "name": "UV",
-        "unit": "W/m2",
+        "unit": "UV index",
         "device_class": "uv_index",
         "data_key": "uv",
     },

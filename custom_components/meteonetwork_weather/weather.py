@@ -112,3 +112,9 @@ class MeteoNetworkWeatherEntity(CoordinatorEntity, WeatherEntity):
         raw_data = self.coordinator.data["sensors"].get("raw", {})
         expose = self.config_entry.options.get(CONF_EXPOSE_RAW_DATA)
         return {f"raw_{k}": v for k, v in raw_data.items()} if expose is None or expose else {}
+
+    @property
+    def state(self):
+        """Return the state of the entity."""
+
+        return self.coordinator.data["sensors"].get("condition") or "unknown"

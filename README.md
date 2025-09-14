@@ -13,11 +13,15 @@ This integration adds support for retrieving the current conditions from [MeteoN
 A valid Auth token for MeteoNetwork API is required.
 You can configure multiple MeteoNetwork weather stations to get observed weather conditions.
 
-> **Warning:** If the MeteoNetwork station you want to add is _not under a **CC-BY 4.0** license_, most certainly
+> [!TIP]
+If the MeteoNetwork station you want to add is _not under a **CC-BY 4.0** license_, most certainly
 its data will not be available through the API, so this integration will not work.
-However you can still use [Mauro Giacomelli’s integration](https://github.com/mgiako/MeteoNetwork-HTML-Scraper), which reads values directly from the station’s webpage via scraping.
+However you can still use [Mauro Giacomelli’s integration](https://github.com/mgiako/MeteoNetwork-HTML-Scraper),
+which reads values directly from the station’s webpage via scraping.
 
-> **Info:**  If you are interested in an ARPA Veneto station that doesn't work with this Meteonetwork integration, you can also try the [arpa-veneto-weather](https://github.com/davidecavestro/arpa-veneto-weather) integration.
+> [!NOTE]
+If you are interested in a station operated by ARPA Veneto that doesn't work with this Meteonetwork integration,
+you can also try the [arpa-veneto-weather](https://github.com/davidecavestro/arpa-veneto-weather) integration.
 
 #### This integration will set up the following platforms.
 
@@ -68,7 +72,46 @@ Once you have configured a station, you can control some options from ⚙ (its _
 - **Expose extended sensors**: Expose additional sensors, covering daily high/avg/low temperature and so on
 - **Expose station attributes as sensors**: Expose as sensors some station attributes such as longitude, latitude, altitude, etc
 - **Expose JSON extra attributes for raw data**: Expose JSON extra attributes for raw data
+- **Compute the current condition**: Expose the weather state as computed from available metrics
 
+## Compute the current weather condition
+
+Since the stations don't provide data for current sky condition, the weather
+state has been historically left to _Unknown_.
+Since v0.7 this integration optionally computes the current sky condition
+with a best-effort approach based on available sensors:
+<dl>
+<dt>
+day - sun above the horizon
+</dt>
+<dd>
+it compares the actual sunlight (Global Horizontal Irradiance) with the maximum expected
+for the current sun position, as its elevation over the horizon and the azimuth actually reflects
+the <i>latitude</i>, the <i>season</i> and the <i>time</i> of the day.<br>
+Based on the realtime data available for solar radiation.
+
+When available, it also uses data such as <i>precipitation</i>, <i>humidity</i>, <i>dew point</i> and <i>wind speed</i> to make
+the best possible estimate of the actual sky conditions.
+</dd>
+<dt>
+night - sun below the horizon
+</dt>
+<dd>
+we miss data about the actual night sky brightness, so we can just detect precipitation or wind.
+</dd>
+</dl>
+
+> [!NOTE]
+This feature is still under test, so it is disabled by default.<br>
+In order to enable it, go to <i>Configuration > Integrations > Meteonetwork Weather</i>.<br>
+Click on the gear on the station you are interested in.<br>
+Then choose <i>Compute the current condition: &gt; <b>From sensors</b></i>.
+
+> [!TIP]
+If you want to experiment - choose  <i>Compute the current condition</i>: <i>From sensors
+using custom thresholds</b></i> to set custom thresholds
+for separately switching between <i>clear</i>, <i>partly cloudy</i> and <i>cloudy</i> based
+on solar radiance during day.
 
 ## Enable Debug Logging
 

@@ -43,8 +43,24 @@
                 "data": {
                     "expose_raw_data": "Expose JSON extra attributes for raw data",
                     "expose_extended_sensors": "Expose extended sensors (see documentation)",
-                    "expose_station_attrs_as_sensors": "Expose station attributes as sensors"
+                    "expose_station_attrs_as_sensors": "Expose station attributes as sensors",
+                    "infer_condition": "Compute the current condition"
                 }
+            },
+            "thresholds": {
+                "data": {
+                    "day_clear_threshold": "Daytime clear sky threshold (0 to 1)",
+                    "day_partly_threshold": "Daytime partly cloudy threshold (0 to 1)"
+                }
+            }
+        }
+    },
+    "selector": {
+        "infer_condition": {
+            "options": {
+                "infer_condition_from_sensors": "From sensors",
+                "infer_condition_from_sensors_with_custom_thresholds": "From sensors using custom thresholds",
+                "infer_condition_disabled": "Don't compute"
             }
         }
     },
@@ -111,7 +127,7 @@
                 "name": "Region/State for {station_name}"
             },
             "rad": {
-                "name": "Solar radiation index in {station_name}"
+                "name": "Solar radiation in {station_name}"
             },
             "wind_direction": {
                 "name": "Wind direction cardinals in {station_name}"
@@ -123,7 +139,7 @@
                 "name": "Wind gust in {station_name}"
             },
             "uv": {
-                "name": "UV in {station_name}"
+                "name": "UV index in {station_name}"
             },
             "current_tmin": {
                 "name": "Current daily low temperature in {station_name}"
