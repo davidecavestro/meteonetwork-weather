@@ -8,7 +8,8 @@ Home Assistant unofficial integration for MeteoNetwork Weather current condition
 [![Community Forum][forum-shield]][forum]
 
 
-This integration adds support for retrieving the current conditions from [MeteoNetwork realtime weather data of specific weather stations](https://api.meteonetwork.it/documentation.html#tag/Realtime-Data/paths/~1data-realtime~1%7Bstation_code%7D/get).
+This integration adds support for retrieving the current conditions from
+[MeteoNetwork realtime weather data of specific weather stations](https://api.meteonetwork.it/documentation.html#tag/Realtime-Data/paths/~1data-realtime~1%7Bstation_code%7D/get).
 
 A valid Auth token for MeteoNetwork API is required.
 You can configure multiple MeteoNetwork weather stations to get observed weather conditions.
@@ -21,7 +22,8 @@ which reads values directly from the station’s webpage via scraping.
 
 > [!NOTE]
 If you are interested in a station operated by ARPA Veneto that doesn't work with this Meteonetwork integration,
-you can also try the [arpa-veneto-weather](https://github.com/davidecavestro/arpa-veneto-weather) integration.
+you can also try the [arpa-veneto-weather](https://github.com/davidecavestro/arpa-veneto-weather) integration
+which incidentally provides better recognition of the current weather state.
 
 #### This integration will set up the following platforms.
 
@@ -32,9 +34,11 @@ Platform | Description
 
 ## Installation through HACS (Recommended Method)
 
-If you are not familiar with HACS, or haven't installed it, I would recommend to [look through the HACS documentation](https://hacs.xyz/), before continuing.
+If you are not familiar with HACS, or haven't installed it, I would recommend to
+[look through the HACS documentation](https://hacs.xyz/), before continuing.
 
-Register `davidecavestro/meteonetwork-weather` as an [HACS custom repository](https://www.hacs.xyz/docs/faq/custom_repositories/).
+Register `davidecavestro/meteonetwork-weather` as an
+[HACS custom repository](https://www.hacs.xyz/docs/faq/custom_repositories/).
 
 ## Manual installation
 
@@ -78,6 +82,7 @@ Once you have configured a station, you can control some options from ⚙ (its _
 
 Since the stations don't provide data for current sky condition, the weather
 state has been historically left to _Unknown_.
+
 Since v0.7 this integration optionally computes the current sky condition
 with a best-effort approach based on available sensors:
 <dl>
