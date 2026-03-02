@@ -51,9 +51,9 @@ Register `davidecavestro/meteonetwork-weather` as an
 
 To add MeteoNetwork Weather to your installation, do the following:
 
-- Go to Configuration and Integrations
-- Click the + ADD INTEGRATION button in the lower right corner.
-- Search for *MeteoNetwork Weather** and click the integration.
+- Go to _Settings_ then _Devices % services_.
+- From the _Integrations_ tab click the ⊕ _Add Integration_ button on the lower right corner.
+- Search for *MeteoNetwork Weather* and click the integration.
 - When loaded, there will be a configuration wizard, where you must enter:
 
   | Parameter | Required | Default Value | Description |
