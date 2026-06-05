@@ -6,11 +6,13 @@
     "configurations": [
         {
             "name": "Python: Debug MeteoNetwork Weather",
-            "type": "python",
+            "type": "debugpy",
             "request": "attach",
             "justMyCode": false,
-            "port": 5678,
-            "host": "localhost",
+            "connect": {
+                "host": "0.0.0.0",
+                "port": "5678"
+            },
             "pathMappings": [
                 {
                     "localRoot": "/workspaces/meteonetwork-weather",

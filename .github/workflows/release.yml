@@ -16,7 +16,7 @@ jobs:
       contents: write
     steps:
       - name: "Checkout the repository"
-        uses: "actions/checkout@v4.3.1"
+        uses: "actions/checkout@v6.0.3"
 
       - name: Update CHANGELOG
         id: changelog
@@ -38,13 +38,13 @@ jobs:
           zip meteonetwork-weather.zip -r ./
 
       - name: "Upload the ZIP file to the release"
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           body: ${{ steps.changelog.outputs.changes }}
           files: ${{ github.workspace }}/custom_components/meteonetwork_weather/meteonetwork-weather.zip
 
       - name: Commit CHANGELOG.md
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           branch: main
           commit_message: 'docs: update CHANGELOG.md for ${{ github.ref_name }} [skip ci]'
