@@ -1,4 +1,16 @@
 
+## [0.8.0] - 2026-06-05
+### :wrench: Chores
+- [`dccbc59`](https://github.com/davidecavestro/meteonetwork-weather/commit/dccbc599880a9c34f21100e66600780a65f2faf0) - **deps**: update actions/checkout action to v4.3.1 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`2f5aea7`](https://github.com/davidecavestro/meteonetwork-weather/commit/2f5aea7b1fc9d293b550870fbe4db5e3e94c4bc1) - **deps**: update actions/setup-python action to v5.6.0 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`8081946`](https://github.com/davidecavestro/meteonetwork-weather/commit/8081946155b5cbf4bb8d6a0198e9ce15cb259074) - **deps**: update dependency debugpy to v1.8.21 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`7492e65`](https://github.com/davidecavestro/meteonetwork-weather/commit/7492e65a8f6567d5db4a254b1939010d5c1c1bc3) - **deps**: update dependency pip to v26 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`04ac640`](https://github.com/davidecavestro/meteonetwork-weather/commit/04ac64005aaa97750448a5d0ad12c4c4f9867d02) - **deps**: update mcr.microsoft.com/vscode/devcontainers/python docker tag to v3.14 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`e31b73c`](https://github.com/davidecavestro/meteonetwork-weather/commit/e31b73c6001ecc2c7c1527751d42c92af1e1bb62) - **deps**: update dependency colorlog to v6.10.1 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`cd4142d`](https://github.com/davidecavestro/meteonetwork-weather/commit/cd4142db2ebf5664a18feeadc573d01b8f2f5296) - **deps**: update dependency python to 3.14 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`8eab2df`](https://github.com/davidecavestro/meteonetwork-weather/commit/8eab2dfe9d8354abf49a651f7cdb2afd9ed5c19d) - bump up deps *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+
+
 ## [0.7.1] - 2025-09-14
 ### :bug: Bug Fixes
 - [`f2d833f`](https://github.com/davidecavestro/meteonetwork-weather/commit/f2d833f95a822e12cd48e92f8cafa33faa5c7dd6) - avoid name collision for UV entity *(commit by [@davidecavestro](https://github.com/davidecavestro))*
@@ -95,3 +107,4 @@
 [0.6.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.5.1...0.6.0
 [0.7.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.6.0...0.7.0
 [0.7.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.7.0...0.7.1
+[0.8.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.7.1...0.8.0
