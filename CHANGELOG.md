@@ -1,4 +1,13 @@
 
+## [0.8.1] - 2026-06-11
+### :bug: Bug Fixes
+- [`b2c3531`](https://github.com/davidecavestro/meteonetwork-weather/commit/b2c3531f5b43a2b1b27fba4aa3e3b6a023712304) - sensors not available in statistics *(PR [#24](https://github.com/davidecavestro/meteonetwork-weather/pull/24) by [@davidecavestro](https://github.com/davidecavestro))*
+
+### :wrench: Chores
+- [`b459b6f`](https://github.com/davidecavestro/meteonetwork-weather/commit/b459b6f44c1e61fea09bd98c8a2c8b9db94c7e83) - **deps**: update dependency ruff to v0.15.16 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`e1aee9f`](https://github.com/davidecavestro/meteonetwork-weather/commit/e1aee9f38bf0dbf6513f617d86b93a4acfef226b) - lint for python 3.14 *(commit by [@davidecavestro](https://github.com/davidecavestro))*
+
+
 ## [0.8.0] - 2026-06-05
 ### :wrench: Chores
 - [`dccbc59`](https://github.com/davidecavestro/meteonetwork-weather/commit/dccbc599880a9c34f21100e66600780a65f2faf0) - **deps**: update actions/checkout action to v4.3.1 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
@@ -108,3 +117,4 @@
 [0.7.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.6.0...0.7.0
 [0.7.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.7.0...0.7.1
 [0.8.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.7.1...0.8.0
+[0.8.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.8.0...0.8.1
