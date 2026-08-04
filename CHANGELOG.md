@@ -1,4 +1,9 @@
 
+## [0.8.2] - 2026-08-04
+### :bug: Bug Fixes
+- [`1834eb2`](https://github.com/davidecavestro/meteonetwork-weather/commit/1834eb242c77661d41fae6a133a15629fbe775b1) - actually set state_class to measurement for sensors *(PR [#24](https://github.com/davidecavestro/meteonetwork-weather/pull/24) by [@davidecavestro](https://github.com/davidecavestro))*
+
+
 ## [0.8.1] - 2026-06-11
 ### :bug: Bug Fixes
 - [`b2c3531`](https://github.com/davidecavestro/meteonetwork-weather/commit/b2c3531f5b43a2b1b27fba4aa3e3b6a023712304) - sensors not available in statistics *(PR [#24](https://github.com/davidecavestro/meteonetwork-weather/pull/24) by [@davidecavestro](https://github.com/davidecavestro))*
@@ -118,3 +123,4 @@
 [0.7.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.7.0...0.7.1
 [0.8.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.7.1...0.8.0
 [0.8.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.8.0...0.8.1
+[0.8.2]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.8.1...0.8.2
