@@ -74,6 +74,7 @@ class MeteoNetworkSensor(CoordinatorEntity[DataUpdateCoordinator], SensorEntity)
         self.station_name = config_entry.data.get("station_name")
         self.sensor_key = sensor_key
         self._attr_device_class = sensor.get("device_class")
+        self._attr_state_class = sensor.get("state_class")
         self._attr_native_unit_of_measurement = sensor.get("unit")
         station_type = config_entry.data.get('station_type')
         self._attr_extra_state_attributes = {
