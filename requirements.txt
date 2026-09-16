@@ -2,4 +2,4 @@ colorlog==6.12.0
 homeassistant>=2026.6.0
 pip>=26.2,<26.3
 ruff==0.16.7
-debugpy==1.8.21
+debugpy==1.8.22
