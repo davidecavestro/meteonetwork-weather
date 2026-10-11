@@ -1,4 +1,19 @@
 
+## [0.8.3] - 2026-10-11
+### :bug: Bug Fixes
+- [`005a6ec`](https://github.com/davidecavestro/meteonetwork-weather/commit/005a6ecd0fc1b59222274b71a3fa9d3cfb0b99b9) - Units swapped for daily UV and radiation extended sensors *(PR [#38](https://github.com/davidecavestro/meteonetwork-weather/pull/38) by [@davidecavestro](https://github.com/davidecavestro))*
+
+### :wrench: Chores
+- [`b822e94`](https://github.com/davidecavestro/meteonetwork-weather/commit/b822e947c4a4833056bef42f7eb3645ae29c7b9b) - **deps**: update actions/checkout action to v7 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`39ffab8`](https://github.com/davidecavestro/meteonetwork-weather/commit/39ffab8ffccb54f80881b8dbfeb92020c639a07f) - **deps**: update actions/setup-python action to v7 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`ee2d1f7`](https://github.com/davidecavestro/meteonetwork-weather/commit/ee2d1f7545b97f74f08c5f171adb3f9c577feb5c) - **deps**: update dependency ruff to v0.16.1 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`8844322`](https://github.com/davidecavestro/meteonetwork-weather/commit/8844322b4a86235814b22df81fce0f94ad8e55c6) - **deps**: update dependency colorlog to v6.12.0 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`35aa534`](https://github.com/davidecavestro/meteonetwork-weather/commit/35aa534a2fa58357db6494b47876627c663a6d07) - **deps**: update dependency pip to >=26.2,<26.3 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`baa71ca`](https://github.com/davidecavestro/meteonetwork-weather/commit/baa71ca6dac8963323bb26fe80b017fc0d7b31a0) - **deps**: update dependency ruff to v0.16.2 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`1a9a037`](https://github.com/davidecavestro/meteonetwork-weather/commit/1a9a03735b280947424d7021063c2547d1c2279a) - **deps**: update dependency ruff to v0.16.3 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+- [`d017d07`](https://github.com/davidecavestro/meteonetwork-weather/commit/d017d078082e3ff1f4a6900175853c93c30fac68) - **deps**: update dependency ruff to v0.16.7 *(commit by [@renovate[bot]](https://github.com/apps/renovate))*
+
+
 ## [0.8.2] - 2026-08-04
 ### :bug: Bug Fixes
 - [`1834eb2`](https://github.com/davidecavestro/meteonetwork-weather/commit/1834eb242c77661d41fae6a133a15629fbe775b1) - actually set state_class to measurement for sensors *(PR [#24](https://github.com/davidecavestro/meteonetwork-weather/pull/24) by [@davidecavestro](https://github.com/davidecavestro))*
@@ -124,3 +139,4 @@
 [0.8.0]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.7.1...0.8.0
 [0.8.1]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.8.0...0.8.1
 [0.8.2]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.8.1...0.8.2
+[0.8.3]: https://github.com/davidecavestro/meteonetwork-weather/compare/0.8.2...0.8.3
